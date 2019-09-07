@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import './demo/draw_demo.dart';
 import './demo/bottom_navigation_demo.dart';
 import './demo/listview_demo.dart';
+import './demo/basic_demo.dart';
 // material包是Flutter实现Material Design设计风格的基础包，
 // 其中有Text、Icon、Image等基础控件，有Align、Column、Decoration等布局控件，更多的还有异步控件、动画控件以及其他函数与方法。
 void main () => runApp(App());
@@ -21,7 +22,6 @@ class App extends StatelessWidget {
 }
 
 class Home extends StatelessWidget{
-  int _currentIndex = 0;
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -59,7 +59,7 @@ class Home extends StatelessWidget{
         body: TabBarView(
           children: <Widget>[
             ListViewDemo(),
-            Icon(Icons.change_history, size: 128.0, color: Colors.black12),
+            BasicDemo(),
             Icon(Icons.directions_bike, size: 128.0, color: Colors.black12),
           ],
         ),

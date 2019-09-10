@@ -83,6 +83,20 @@ class ContainerDemo extends StatelessWidget {
                  )
               ],  
               shape: BoxShape.circle, // 设置容器的形状circle圆形, shape设置为圆形的话，要注释borderRadius，否则会引起冲突
+              // gradient: RadialGradient( //径向渐变
+              //   colors: [
+              //     Color.fromRGBO(7, 102, 255, 1.0),
+              //     Color.fromRGBO(7, 102, 255, 1.0),
+              //   ]
+              // )
+              gradient: LinearGradient( //线性渐变
+                colors: [
+                  Color.fromRGBO(7, 102, 255, 1.0),
+                  Color.fromRGBO(7, 102, 255, 1.0),
+                ],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+              )
             ),
           )
         ],

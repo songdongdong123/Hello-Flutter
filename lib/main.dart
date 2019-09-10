@@ -3,6 +3,7 @@ import './demo/draw_demo.dart';
 import './demo/bottom_navigation_demo.dart';
 import './demo/listview_demo.dart';
 import './demo/basic_demo.dart';
+import './demo/layout_demo.dart';
 // material包是Flutter实现Material Design设计风格的基础包，
 // 其中有Text、Icon、Image等基础控件，有Align、Column、Decoration等布局控件，更多的还有异步控件、动画控件以及其他函数与方法。
 void main () => runApp(App());
@@ -60,7 +61,7 @@ class Home extends StatelessWidget{
           children: <Widget>[
             ListViewDemo(),
             BasicDemo(),
-            Icon(Icons.directions_bike, size: 128.0, color: Colors.black12),
+            LayoutDemo(),
           ],
         ),
         drawer: DrawDemo(),

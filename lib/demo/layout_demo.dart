@@ -18,8 +18,42 @@ class LayoutDemo extends StatelessWidget {
         children: <Widget>[
           // children代表的是一组子部件
           // child代表的是唯一的子部件
-          StackDemo()
+          // StackDemo()
+          // AspectRatioDemo()
+          ConstrainedBoxDemo()
         ],
+      ),
+    );
+  }
+}
+
+class ConstrainedBoxDemo extends StatelessWidget {
+  // 带限制的小部件
+  @override
+  Widget build(BuildContext context) {
+    // 可以使用ConstrainedBox来创建一个带限制的盒子
+    return ConstrainedBox(
+      // 使用constraints属性来设置限制条件
+      constraints: BoxConstraints(
+        minHeight: 200.0, //最小高度
+        maxWidth: 200.0 //最大宽度
+      ),
+      child:  Container(
+        color: Color.fromRGBO(3, 200, 255, 1.0),
+      ),
+    );
+  }
+}
+
+class AspectRatioDemo extends StatelessWidget {
+  // 宽高比小部件
+  @override
+  Widget build(BuildContext context) {
+    // 可以使用AspectRatio来创建一个可以设置宽高比的容器
+    return AspectRatio(
+      aspectRatio: 1.0 / 1.0,
+      child: Container(
+        color: Color.fromRGBO(3, 54, 255, 1.0),
       ),
     );
   }

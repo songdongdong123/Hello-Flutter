@@ -6,6 +6,7 @@ import './demo/basic_demo.dart';
 import './demo/layout_demo.dart';
 import './demo/view_demo.dart';
 import './demo/sliver_demo.dart';
+import './demo/navigator_demo.dart';
 // material包是Flutter实现Material Design设计风格的基础包，
 // 其中有Text、Icon、Image等基础控件，有Align、Column、Decoration等布局控件，更多的还有异步控件、动画控件以及其他函数与方法。
 void main () => runApp(App());
@@ -14,7 +15,12 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false, //用户关闭debug模式下右上角的debug提示
-      home: Home(),
+      // home: Home(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => Home(),
+        '/about': (context) => Page(title: 'About')
+      },
       theme: ThemeData( // 部件主体颜色
         primaryColor: Colors.yellow,
         highlightColor: Color.fromRGBO(255,255,255,0.5), // 更改点击高亮的颜色

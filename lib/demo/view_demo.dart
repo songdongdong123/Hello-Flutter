@@ -4,7 +4,102 @@ class ViewDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return PageViewBuilderDemo();
+    return GridViewBuilderDemo();
+  }
+}
+
+class GridViewBuilderDemo extends StatelessWidget {
+
+  Widget _gridItemBuilder (BuildContext context, int index) {
+    return Container(
+      child: Image.network( // 加载网络图片
+        posts[index].imageUrl, //图片地址
+        fit: BoxFit.cover, //图片填充方式
+      ),
+    );
+  }
+
+  // 按需生成网格式图
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return GridView.builder(
+      padding: EdgeInsets.all(8.0),
+      itemCount: posts.length, // 网格的个数
+      itemBuilder: _gridItemBuilder, // 生成网格式图
+      // SliverGridDelegateWithMaxCrossAxisExtent 用于创建具有最大横轴范围的 网格块 的布局。
+      // SliverGridDelegateWithFixedCrossAxisCount 它创建一个在横轴上具有固定数量的 网格块 的布局。
+      // gridDelegate 一个控制 GridView 中子项布局的委托。
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount( 
+        crossAxisCount: 2, //个数
+        crossAxisSpacing: 8.0, // 横轴间距
+        mainAxisSpacing: 8.0, // 竖轴间距
+      ),
+    );
+  }
+}
+
+class GridViewExtentDemo extends StatelessWidget {
+  // 生成网格视图的另一种方式
+
+   // 该方法返回一个List类型的Widget
+  List<Widget> _buildTitles (int length) {
+    return List.generate(length, (int index) {
+      return Container(
+          color: Colors.grey[300],
+          alignment: Alignment(0.0, 0.0), //对齐方式
+          child: Text(
+            'Item $index',
+            style: TextStyle(fontSize: 18.0, color: Colors.grey)
+          ),
+        );
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return GridView.extent(
+      maxCrossAxisExtent: 280.0, //横轴的最大长度
+      crossAxisSpacing: 16.0, //横轴间隔
+      mainAxisSpacing: 16.0, //主轴间隔
+      // 方向是垂直的时候 主轴是垂直的, 反之主轴就是水平的
+      // scrollDirection: Axis.horizontal, //控制滚动方向，默认是垂直的，这里修改为了水平的
+      children: _buildTitles(100)
+    );
+  }
+}
+
+
+class GridViewCountDemo extends StatelessWidget {
+  // 生成网格视图
+
+   // 该方法返回一个List类型的Widget
+  List<Widget> _buildTitles (int length) {
+    return List.generate(length, (int index) {
+      return Container(
+          color: Colors.grey[300],
+          alignment: Alignment(0.0, 0.0), //对齐方式
+          child: Text(
+            'Item $index',
+            style: TextStyle(fontSize: 18.0, color: Colors.grey)
+          ),
+        );
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return GridView.count(
+      // 横轴数量 这里的横轴就是x轴 因为方向是垂直的时候 主轴是垂直的, 反之主轴就是水平的
+      crossAxisCount: 3, //交叉轴个数，这里表示一排三个
+      crossAxisSpacing: 16.0, //横轴间隔
+      mainAxisSpacing: 16.0, //主轴间隔
+      // 方向是垂直的时候 主轴是垂直的, 反之主轴就是水平的
+      scrollDirection: Axis.horizontal, //控制滚动方向，默认是垂直的，这里修改为了水平的
+      children: _buildTitles(100)
+    );
   }
 }
 
@@ -50,7 +145,6 @@ class PageViewBuilderDemo extends StatelessWidget {
     );
   }
 }
-
 
 
 class PageViewDemo extends StatelessWidget {

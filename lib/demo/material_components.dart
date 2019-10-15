@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:hellow_flutter/demo/form_demo.dart';
+import 'package:hellow_flutter/demo/radio_demo.dart';
+import 'package:hellow_flutter/demo/slider_demo.dart';
+import 'package:hellow_flutter/demo/switch_demo.dart';
 import './button_demo.dart';
 import './floating_action_button_demo.dart';
 import './popup_menu_button_demo.dart';
+import './checkbox_demo.dart';
+import './datetime_demo.dart';
 
 class MeterialComponents extends StatelessWidget {
   @override
@@ -14,6 +20,30 @@ class MeterialComponents extends StatelessWidget {
       body: ListView(
         // ListView列表视图
         children: <Widget>[
+          ListItem(
+            title: 'DatetimeDemo',
+            page: DatetimeDemo(),
+          ),
+          ListItem(
+            title: 'SliderDemo',
+            page: SliderDemo(),
+          ),
+          ListItem(
+            title: 'SwitchDemo',
+            page: SwitchDemo(),
+          ),
+          ListItem(
+            title: 'Radio',
+            page: RadioDemo(),
+          ),
+          ListItem(
+            title: 'Checkbox',
+            page: CheckboxDemo(),
+          ),
+          ListItem(
+            title: 'Form',
+            page: FormDemo(),
+          ),
           ListItem(
             title: 'PopupMenuButton',
             page: PopupMenuButtonDemo(),

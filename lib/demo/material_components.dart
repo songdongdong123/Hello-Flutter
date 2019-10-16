@@ -8,6 +8,11 @@ import './floating_action_button_demo.dart';
 import './popup_menu_button_demo.dart';
 import './checkbox_demo.dart';
 import './datetime_demo.dart';
+import './simple_dialog_demo.dart';
+import './alert_dialog_demo.dart';
+import './bottom_sheet_demo.dart';
+import './snack_bar_demo.dart';
+import './expandsion_panel_demo.dart';
 
 class MeterialComponents extends StatelessWidget {
   @override
@@ -20,6 +25,26 @@ class MeterialComponents extends StatelessWidget {
       body: ListView(
         // ListView列表视图
         children: <Widget>[
+          ListItem(
+            title: 'ExpansionPanelDemo',
+            page: ExpansionPanelDemo(),
+          ),
+          ListItem(
+            title: 'SnackBarDemo',
+            page: SnackBarDemo(),
+          ),
+          ListItem(
+            title: 'BottomSheetDemo',
+            page: BottomSheetDemo(),
+          ),
+          ListItem(
+            title: 'AlertDialogDemo',
+            page: AlertDialogDemo(),
+          ),
+          ListItem(
+            title: 'SimpleDialogDemo',
+            page: SimpleDialogDemo(),
+          ),
           ListItem(
             title: 'DatetimeDemo',
             page: DatetimeDemo(),

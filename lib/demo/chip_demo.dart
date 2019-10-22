@@ -10,6 +10,9 @@ class _ChipDemoState extends State<ChipDemo> {
     'Banana',
     'Lemon'
   ];
+  String _action = 'Nothing';
+  List<String> _selected = [];
+  String _choice = 'Lemon';
   @override
   Widget build(BuildContext context) {
      return Scaffold(
@@ -78,6 +81,82 @@ class _ChipDemoState extends State<ChipDemo> {
                       },
                     );
                   }).toList(),
+                ),
+                Divider( // 分割线
+                  color: Colors.grey, // 分割线颜色
+                  height: 32.0, // 分割线高度
+                  // indent: 32.0, //分割线缩进
+                ),
+                Container(
+                  width: double.infinity,
+                  child: Text('ActionChip: $_action'),
+                ),
+                Wrap(
+                  // 生成一组ActionChip(一组操作chip)
+                  spacing: 8.0,
+                  children: _tags.map((tag) { //迭代生成chip
+                    return ActionChip(
+                      label: Text(tag),
+                      onPressed: () {
+                        setState(() {
+                          _action = tag; 
+                        });
+                      }, // ActionChip不能使用onDeleted
+                    );
+                  }).toList(),
+                ),
+                Divider( // 分割线
+                  color: Colors.grey, // 分割线颜色
+                  height: 32.0, // 分割线高度
+                  // indent: 32.0, //分割线缩进
+                ),
+                Container(
+                  width: double.infinity,
+                  child: Text('ActionChip: ${_selected.toString()}'),
+                ),
+                Wrap(
+                  // 生成一组ActionChip(一组操作chip)
+                  spacing: 8.0,
+                  children: _tags.map((tag) { //迭代生成chip
+                    return FilterChip(
+                      label: Text(tag),
+                      selected: _selected.contains(tag),
+                      onSelected: (value) {
+                        setState(() {
+                          if (_selected.contains(tag)) {
+                            _selected.remove(tag);
+                          } else {
+                            _selected.add(tag);
+                          }
+                        });
+                      },
+                    );
+                  }).toList(),
+                ),
+                Divider( // 分割线
+                  color: Colors.grey, // 分割线颜色
+                  height: 32.0, // 分割线高度
+                  // indent: 32.0, //分割线缩进
+                ),
+                Container(
+                  width: double.infinity,
+                  child: Text('ActionChip: $_choice'),
+                ),
+                Wrap(
+                  // 生成一组ActionChip(一组操作chip)
+                  spacing: 8.0,
+                  children: _tags.map((tag) { //迭代生成chip
+                    return ChoiceChip(
+                      label: Text(tag),
+                      selected: _choice == tag,
+                      selectedColor: Colors.black,
+                      onSelected: (value) {
+                        setState(() {
+                         _choice = tag;
+                        });
+                      },
+                    );
+                  }).toList(),
                 )
               ],
             )
@@ -93,6 +172,10 @@ class _ChipDemoState extends State<ChipDemo> {
               'Banana',
               'Lemon'
             ]; 
+
+            _selected = [];
+
+            _choice = 'Lemon';
           });
         },
       ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hellow_flutter/demo/card_demo.dart';
 import 'package:hellow_flutter/demo/form_demo.dart';
 import 'package:hellow_flutter/demo/radio_demo.dart';
 import 'package:hellow_flutter/demo/slider_demo.dart';
@@ -15,6 +16,8 @@ import './snack_bar_demo.dart';
 import './expandsion_panel_demo.dart';
 import './chip_demo.dart';
 import './data_table_demo.dart';
+import './paginated_data_table_demo.dart';
+import './stepper_demo.dart';
 
 class MeterialComponents extends StatelessWidget {
   @override
@@ -27,6 +30,18 @@ class MeterialComponents extends StatelessWidget {
       body: ListView(
         // ListView列表视图
         children: <Widget>[
+          ListItem(
+            title: 'StepperDemo',
+            page: StepperDemo(),
+          ),
+          ListItem(
+            title: 'CardDemo',
+            page: CardDemo(),
+          ),
+          ListItem(
+            title: 'PaginatedDataTableDemo',
+            page: PaginatedDataTableDemo(),
+          ),
           ListItem(
             title: 'DataTableDemo',
             page: DataTableDemo(),

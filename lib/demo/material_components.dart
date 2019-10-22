@@ -14,6 +14,7 @@ import './bottom_sheet_demo.dart';
 import './snack_bar_demo.dart';
 import './expandsion_panel_demo.dart';
 import './chip_demo.dart';
+import './data_table_demo.dart';
 
 class MeterialComponents extends StatelessWidget {
   @override
@@ -26,6 +27,10 @@ class MeterialComponents extends StatelessWidget {
       body: ListView(
         // ListView列表视图
         children: <Widget>[
+          ListItem(
+            title: 'DataTableDemo',
+            page: DataTableDemo(),
+          ),
           ListItem(
             title: 'ChipDemo',
             page: ChipDemo(),

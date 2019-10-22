@@ -20,23 +20,23 @@ class _StepperDemoState extends State<StepperDemo> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Theme(
+            Theme( // 用于覆盖主题
               data: Theme.of(context).copyWith(
                 primaryColor: Colors.black,
               ),
               child: Stepper(
-                currentStep: _currentStep,
-                onStepTapped: (int value) {
+                currentStep: _currentStep, // 当前step
+                onStepTapped: (int value) { // 点击整个step的行为
                   setState(() {
                     _currentStep = value;
                   });
                 },
-                onStepContinue: () {
+                onStepContinue: () { // 点击CONTINUE的行为
                   setState(() {
                     _currentStep < 2 ? _currentStep += 1 : _currentStep = 0;
                   });
                 },
-                onStepCancel: () {
+                onStepCancel: () { // 点击CANCEL的行为
                   setState(() {
                     _currentStep > 0 ? _currentStep -= 1 : _currentStep = 0;
                   });
@@ -46,7 +46,7 @@ class _StepperDemoState extends State<StepperDemo> {
                     title: Text('Login'),
                     subtitle: Text('Login first'),
                     content: Text('Magna exercitation duis non sint eu nostrud.'),
-                    isActive: _currentStep == 0,
+                    isActive: _currentStep == 0, // step的激活状态
                   ),
                   Step(
                     title: Text('Choose Plan'),

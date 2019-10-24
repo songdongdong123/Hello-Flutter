@@ -15,6 +15,7 @@ import './demo/stream/stream_demo.dart';
 import './demo/rxdart/rxdart_demo.dart';
 import './demo/bloc/bloc_demo.dart';
 import './demo/http/http_demo.dart';
+import './demo/animation/animation_demo.dart';
 
 
 // material包是Flutter实现Material Design设计风格的基础包，
@@ -26,7 +27,7 @@ class App extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false, //用户关闭debug模式下右上角的debug提示
       // home: Home(),
-      initialRoute: '/http',
+      initialRoute: '/anmiation',
       routes: {
         '/': (context) => Home(),
         '/about': (context) => Page(title: 'About'),
@@ -38,6 +39,7 @@ class App extends StatelessWidget {
         '/rxdart': (context) => RxDartDemo(),
         '/bloc': (context) => BlocDemo(),
         '/http': (context) => HttpDemo(),
+        '/anmiation': (context) => AnimationDemo(),
       },
       theme: ThemeData( // 部件主体颜色
         primaryColor: Colors.yellow, //这里设置的主题颜色，在整个项目中都是通用的

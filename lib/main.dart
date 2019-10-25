@@ -1,4 +1,7 @@
-import 'package:flutter/material.dart'; 
+import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:hellow_flutter/demo/i18n/i18n_demo.dart';
+import 'package:hellow_flutter/demo/i18n/intl/ethan_demo_localizations.dart'; 
 import './demo/draw_demo.dart';
 import './demo/bottom_navigation_demo.dart';
 import './demo/listview_demo.dart';
@@ -16,6 +19,7 @@ import './demo/rxdart/rxdart_demo.dart';
 import './demo/bloc/bloc_demo.dart';
 import './demo/http/http_demo.dart';
 import './demo/animation/animation_demo.dart';
+// import './demo/i18n/map/ethan_demo_localizations.dart';
 
 
 // material包是Flutter实现Material Design设计风格的基础包，
@@ -25,9 +29,23 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      locale: Locale('zh', 'CN'),// 设置语音
+      // locale: Locale('en', 'US'),// 设置语音
+      // localeResolutionCallback: (Locale locale, Iterable<Locale> supportedLocales) {
+      //   return Locale('en', 'US');
+      // },
+      localizationsDelegates: [
+        EthanoDemoLocalizationsDelegate(),
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ],
+      supportedLocales: [
+        Locale('en', 'US'),
+        Locale('zh', 'CN')
+      ],
       debugShowCheckedModeBanner: false, //用户关闭debug模式下右上角的debug提示
       // home: Home(),
-      initialRoute: '/anmiation',
+      initialRoute: '/mdc',
       routes: {
         '/': (context) => Home(),
         '/about': (context) => Page(title: 'About'),
@@ -40,6 +58,7 @@ class App extends StatelessWidget {
         '/bloc': (context) => BlocDemo(),
         '/http': (context) => HttpDemo(),
         '/anmiation': (context) => AnimationDemo(),
+        '/i18n': (context) => I18nDemo(),
       },
       theme: ThemeData( // 部件主体颜色
         primaryColor: Colors.yellow, //这里设置的主题颜色，在整个项目中都是通用的

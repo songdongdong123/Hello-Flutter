@@ -45,7 +45,7 @@ class App extends StatelessWidget {
       ],
       debugShowCheckedModeBanner: false, //用户关闭debug模式下右上角的debug提示
       // home: Home(),
-      initialRoute: '/i18n',
+      initialRoute: '/mdc',
       routes: {
         '/': (context) => Home(),
         '/about': (context) => Page(title: 'About'),

@@ -25,13 +25,10 @@ class NavigatorDemo extends StatelessWidget {
   }
 }
 
-
-class Page extends StatelessWidget {
+class Pages extends StatelessWidget {
   final String title;
 
-  Page({
-    this.title
-  });
+  Pages({this.title});
 
   @override
   Widget build(BuildContext context) {

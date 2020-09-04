@@ -27,8 +27,7 @@ class _HttpDemoHomeState extends State<HttpDemoHome> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    fetchPosts()
-      .then((value) => print(value));
+    fetchPosts().then((value) => print(value));
     // final post = {
     //   'title': 'hello',
     //   'desc': 'nice to meet you'
@@ -50,17 +49,17 @@ class _HttpDemoHomeState extends State<HttpDemoHome> {
   }
 
   Future<List<Post>> fetchPosts() async {
-    final response = 
+    final response =
         await http.get('https://resources.ninghao.net/demo/posts.json');
-    
+
     // print('statusCode: ${response.statusCode}');
     // print('body: ${response.body}');
 
     if (response.statusCode == 200) {
       final responseBody = json.decode(response.body);
       List<Post> posts = responseBody['posts']
-        .map<Post>((item) => Post.fromJson(item))
-        .toList();
+          .map<Post>((item) => Post.fromJson(item))
+          .toList();
 
       return posts;
     } else {
@@ -75,7 +74,7 @@ class _HttpDemoHomeState extends State<HttpDemoHome> {
       builder: (BuildContext context, AsyncSnapshot snapshot) {
         print('data: ${snapshot.data}');
         print('connectionState: ${snapshot.connectionState}');
-        
+
         if (snapshot.connectionState == ConnectionState.waiting) {
           return Center(
             child: Text('loading...'),
@@ -105,7 +104,8 @@ class Post {
   final String author;
   final String imageUrl;
 
-  Post( // 构造函数
+  Post(
+    // 构造函数
     this.id,
     this.title,
     this.desc,
@@ -114,14 +114,14 @@ class Post {
   );
 
   Post.fromJson(Map json) // 构造函数的方法
-    : id = json['id'],
-      title = json['title'],
-      desc = json['desc'],
-      author = json['author'],
-      imageUrl = json['imageUrl'];
+      : id = json['id'],
+        title = json['title'],
+        desc = json['desc'],
+        author = json['author'],
+        imageUrl = json['imageUrl'];
 
   Map toJson() => {
-    'title': title,
-    'descritpion': desc,
-  };
+        'title': title,
+        'descritpion': desc,
+      };
 }
